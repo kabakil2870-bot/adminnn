@@ -1,0 +1,6 @@
+{
+  "name": "ProPOS Merkezi Lisans Yönetim Paneli",
+  "description": "ProPOS Masaüstü & Web Satış Otomasyonu için merkezi lisans doğrulama REST API'si ve super admin yönetim portalı.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -228,15 +228,15 @@ export async function createLicense(db: D1Database, payload: CreateLicensePayloa
     INSERT INTO licenses (id, license_key, client_name, client_phone, max_devices, status, created_at, expires_at, notes)
     VALUES (?, ?, ?, ?, ?, 'active', ?, ?, ?)
   `).bind(
-    id,
-    licenseKey,
-    payload.client_name.trim(),
-    payload.client_phone?.trim() || '',
-    payload.max_devices || 1,
-    createdAt,
-    expiresAt,
-    payload.notes?.trim() || ''
-  ).run();
+    String(id),
+    String(licenseKey),
+    String(payload.client_name ?? "").trim(),
+    String(payload.client_phone ?? "").trim(),
+    Number(payload.max_devices ?? 1),
+    String(createdAt),
+    expiresAt ? String(expiresAt) : null,
+    String(payload.notes ?? "").trim()
+).run();
 
   return getLicenseById(db, id);
 }
